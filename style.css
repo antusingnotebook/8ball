@@ -480,6 +480,16 @@ button:focus {
     width: auto;
     margin: 0 auto;
   }
+    .hours-table {
+    width: auto;
+    margin: 0 auto;
+  }
+  .hours-table th {
+    padding-right: 3rem; 
+  }
+  .hours-table td {
+    text-align: left;
+  }
 }
 @media (max-width: 720px) {
   body {
@@ -586,7 +596,5 @@ button:focus {
   .hours-table th, 
   .hours-table td { 
     padding: .5rem .75rem; 
-    padding-left: 3rem;  /* increase left padding for days */
-    padding-right: 3rem; /* increase right padding for times */
   }
 }
