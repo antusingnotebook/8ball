@@ -437,6 +437,27 @@ button:focus {
   scroll-margin-top: 96px; 
 }
 
+/* NEW STYLES FOR TABLET VIEW */
+@media (min-width: 721px) and (max-width: 980px) {
+  #hours .hours-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .hours-table {
+    border-spacing: 0 8px;
+  }
+  
+  .hours-table th {
+    text-align: left;
+    padding-right: 10rem;
+  }
+  
+  .hours-table td {
+    text-align: right;
+  }
+}
+
 @media (max-width: 980px) {
   .grid.two { 
     grid-template-columns: 1fr; 
@@ -527,6 +548,20 @@ button:focus {
   #amenities {
     scroll-margin-top: 66px; 
   }
+  
+  /* Reset hours table for mobile */
+  #hours .hours-container {
+    width: 100%;
+  }
+  
+  .hours-table th {
+    padding-right: 1rem;
+    text-align: left;
+  }
+  
+  .hours-table td {
+    text-align: right;
+  }
 }
 @media (max-width: 520px) {
   .cards { 
@@ -559,6 +594,3 @@ button:focus {
     border-bottom-left-radius: 0;
   }
 }
-
-
-
