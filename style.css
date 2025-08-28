@@ -468,7 +468,6 @@ button:focus {
     margin: 1rem 0;
   }
   
-  /* NEW: Center the opening hours section on tablet */
   .hours-container {
     display: flex;
     flex-direction: column;
@@ -483,15 +482,14 @@ button:focus {
 }
 
   .hours-table th {
-    padding-right: 16rem; /* increase this for a bigger gap */
+    padding-right: 12rem; 
   }
 
-  /* Optional: keep text left-aligned for days, times centered */
   .hours-table th {
     text-align: left;
   }
   .hours-table td {
-    text-align: left; /* or center if you prefer */
+    text-align: left; 
   }
 
 @media (max-width: 720px) {
