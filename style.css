@@ -437,7 +437,6 @@ button:focus {
   scroll-margin-top: 96px; 
 }
 
-/* NEW STYLES FOR TABLET VIEW */
 @media (min-width: 721px) and (max-width: 980px) {
   #hours .hours-container {
     width: 80%;
@@ -549,7 +548,6 @@ button:focus {
     scroll-margin-top: 66px; 
   }
   
-  /* Reset hours table for mobile */
   #hours .hours-container {
     width: 100%;
   }
