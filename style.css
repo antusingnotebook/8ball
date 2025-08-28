@@ -284,6 +284,12 @@ a:hover { text-decoration: underline; }
   margin-top: .25rem; 
 }
 
+.hours-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .hours-table { 
   width: 100%; 
   border-collapse: separate; 
@@ -461,6 +467,19 @@ button:focus {
   #amenities .cards {
     margin: 1rem 0;
   }
+  
+  /* NEW: Center the opening hours section on tablet */
+  .hours-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hours-table {
+    width: auto;
+    margin: 0 auto;
+  }
 }
 @media (max-width: 720px) {
   body {
@@ -558,8 +577,14 @@ button:focus {
     border-left: none;
     border-bottom-left-radius: 0;
   }
+  
+  .hours-table {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .hours-table th, 
+  .hours-table td { 
+    padding: .5rem .75rem; 
+  }
 }
-
-
-
-
