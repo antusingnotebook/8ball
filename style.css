@@ -480,17 +480,20 @@ button:focus {
     width: auto;
     margin: 0 auto;
   }
-    .hours-table {
-    width: auto;
-    margin: 0 auto;
-  }
+}
+
   .hours-table th {
-    padding-right: 3rem; 
+    padding-right: 6rem; /* increase this for a bigger gap */
   }
-  .hours-table td {
+
+  /* Optional: keep text left-aligned for days, times centered */
+  .hours-table th {
     text-align: left;
   }
-}
+  .hours-table td {
+    text-align: left; /* or center if you prefer */
+  }
+
 @media (max-width: 720px) {
   body {
     padding-top: 66px;
