@@ -1,4 +1,3 @@
-/* Root + theme (red, white, blue logo-friendly palette) */
 :root {
   --blue-600: #2e4f95;
   --blue-800: #1b2e59;
@@ -61,7 +60,6 @@ a:hover { text-decoration: underline; }
   align-items: center; 
 }
 
-/* Header */
 .site-header {
   position: fixed;
   top: 0;
@@ -154,7 +152,6 @@ a:hover { text-decoration: underline; }
   opacity: 1;
 }
 
-/* Hero */
 .hero { 
   position: relative; 
   height: 68vh; 
@@ -221,7 +218,6 @@ a:hover { text-decoration: underline; }
   margin: 0; 
 }
 
-/* Sections */
 .section { 
   padding: 4.5rem 0; 
 }
@@ -269,7 +265,6 @@ a:hover { text-decoration: underline; }
   font-weight: 700;
 }
 
-/* Stats */
 .cards { 
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
@@ -289,7 +284,6 @@ a:hover { text-decoration: underline; }
   margin-top: .25rem; 
 }
 
-/* Hours */
 .hours-table { 
   width: 100%; 
   border-collapse: separate; 
@@ -314,7 +308,6 @@ a:hover { text-decoration: underline; }
   font-size: .9rem; 
 }
 
-/* Map */
 .map-wrap { 
   border-radius: var(--radius); 
   overflow: hidden; 
@@ -329,7 +322,6 @@ a:hover { text-decoration: underline; }
   display: block; 
 }
 
-/* Footer */
 .site-footer { 
   border-top: 1px solid var(--ring); 
   background: #fff; 
@@ -355,7 +347,6 @@ a:hover { text-decoration: underline; }
   max-width: 200px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   padding: .7rem 1rem;
@@ -389,7 +380,6 @@ a:hover { text-decoration: underline; }
   font-weight: 600; 
 }
 
-/* Header Facebook button fix */
 .site-nav .btn-blue {
   background-color: var(--blue-600);
   color: #fff;
@@ -398,14 +388,12 @@ a:hover { text-decoration: underline; }
   background-color: var(--blue-800);
 }
 
-/* Utilities */
 .btn:focus, 
 a:focus, 
 button:focus {
   outline: none;
 }
 
-/* FIX: Make booking card in Hours section stick to bottom */
 #hours .grid.two {
   align-items: stretch; 
 }
@@ -426,8 +414,6 @@ button:focus {
   align-self: flex-start; 
 }
 
-/* FIXES FOR VERTICAL ALIGNMENT ISSUES */
-/* Amenities section - add top/bottom padding to cards container */
 #amenities .container {
   display: flex;
   flex-direction: column;
@@ -439,7 +425,6 @@ button:focus {
   margin: 1.5rem 0;
 }
 
-/* Facebook section - center content vertically */
 #facebook .container {
   min-height: 140px; 
   display: flex;
@@ -449,10 +434,9 @@ button:focus {
 
 #about,
 #amenities {
-  scroll-margin-top: 96px; /* Matches header height */
+  scroll-margin-top: 96px; 
 }
 
-/* Responsive */
 @media (max-width: 980px) {
   .grid.two { 
     grid-template-columns: 1fr; 
@@ -462,7 +446,6 @@ button:focus {
     grid-template-columns: repeat(2, 1fr); 
   }
   
-  /* Reset flex layout on mobile */
   #hours .grid.two > div:nth-child(2) {
     display: block;
   }
@@ -475,7 +458,6 @@ button:focus {
     margin-top: 1rem;
   }
 
-  /* Fix amenities padding on tablet */
   #amenities .cards {
     margin: 1rem 0;
   }
@@ -530,7 +512,6 @@ button:focus {
     height: 40px;
   }
 
-  /* Facebook section mobile layout */
   #facebook .container {
     flex-direction: column;
     text-align: center;
@@ -544,7 +525,7 @@ button:focus {
 
   #about,
   #amenities {
-    scroll-margin-top: 66px; /* Matches smaller header height */
+    scroll-margin-top: 66px; 
   }
 }
 @media (max-width: 520px) {
@@ -567,12 +548,10 @@ button:focus {
     gap: 0.5rem;
   }
 
-  /* Fix amenities spacing on mobile */
   #amenities .cards {
     margin: 0.5rem 0;
   }
   
-  /* Mobile menu full width on very small screens */
   .site-nav {
     width: 100%;
     max-width: 100%;
