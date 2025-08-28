@@ -586,5 +586,7 @@ button:focus {
   .hours-table th, 
   .hours-table td { 
     padding: .5rem .75rem; 
+    padding-left: 1.5rem;  /* increase left padding for days */
+    padding-right: 1.5rem; /* increase right padding for times */
   }
 }
