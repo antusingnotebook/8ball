@@ -168,7 +168,7 @@ a:hover { text-decoration: underline; }
   background-size: cover; 
   background-position: center;
   opacity: 0; 
-  animation: fade 40s infinite; 
+  animation: fade 35s infinite; 
 }
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 5s; }
@@ -177,13 +177,12 @@ a:hover { text-decoration: underline; }
 .slide:nth-child(5) { animation-delay: 20s; }
 .slide:nth-child(6) { animation-delay: 25s; }
 .slide:nth-child(7) { animation-delay: 30s; }
-.slide:nth-child(8) { animation-delay: 35s; }
 
 @keyframes fade {
   0% { opacity: 0; }
   5% { opacity: 1; }
-  12.5% { opacity: 1; }
-  17.5% { opacity: 0; }
+  14.28% { opacity: 1; }
+  19.28% { opacity: 0; }
   100% { opacity: 0; }
 }
 
