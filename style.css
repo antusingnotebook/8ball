@@ -393,6 +393,10 @@ button:focus {
   outline: none;
 }
 
+#hours {
+  padding-bottom: 1rem; 
+}
+
 #hours .grid.two {
   align-items: stretch; 
 }
@@ -432,8 +436,20 @@ button:focus {
 }
 
 #about,
-#amenities {
+#amenities,
+#menu {
   scroll-margin-top: 96px; 
+}
+
+.menu-image-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--ring);
+}
+
+.menu-image-wrap img {
+  width: 100%;
 }
 
 @media (min-width: 721px) and (max-width: 980px) {
@@ -543,8 +559,13 @@ button:focus {
   }
 
   #about,
-  #amenities {
+  #amenities,
+  #menu {
     scroll-margin-top: 66px; 
+  }
+
+  #menu {
+    padding-top: 0;
   }
   
   #hours .hours-container {
@@ -558,6 +579,21 @@ button:focus {
   
   .hours-table td {
     text-align: right;
+  }
+
+  #menu .container {
+    width: 100%;
+  }
+
+  #menu h2 {
+    width: min(1100px, 92%);
+    margin-inline: auto;
+  }
+
+  .menu-image-wrap {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
   }
 }
 @media (max-width: 520px) {
