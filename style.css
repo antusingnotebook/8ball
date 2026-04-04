@@ -445,7 +445,6 @@ button:focus {
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
-  border: 1px solid var(--ring);
 }
 
 .menu-image-wrap img {
