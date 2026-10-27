@@ -370,6 +370,13 @@ a:hover { text-decoration: underline; }
 .site-nav .btn-blue:hover {
   background-color: var(--blue-800);
 }
+.site-nav .btn-red {
+  background-color: var(--red-600);
+  color: #fff;
+}
+.site-nav .btn-red:hover {
+  background-color: var(--red-800);
+}
 
 .btn:focus, 
 a:focus, 
