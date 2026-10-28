@@ -1,653 +1,234 @@
-:root {
-  --blue-600: #2e4f95;
-  --blue-800: #1b2e59;
-  --red-600: #B00020;
-  --red-800: #8D0000;
-  --ink: #0f172a;
-  --ink-2: #334155;
-  --muted: #64748b;
-  --bg: #ffffff;
-  --bg-alt: #eff4fa;
-  --card: #ffffff;
-  --ring: rgba(31,77,216,.18);
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(2,6,23,.08);
-}
-
-* { box-sizing: border-box; }
-html, body { height: 100%; }
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  background: var(--bg);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding-top: 96px;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-img { 
-  max-width: 100%; 
-  height: auto; 
-  display: block; 
-}
-
-a { 
-  color: var(--blue-600); 
-  text-decoration: none; 
-}
-a:hover { text-decoration: underline; }
-
-.container { 
-  width: min(1100px, 92%); 
-  margin-inline: auto; 
-}
-.grid.two { 
-  display: grid; 
-  grid-template-columns: 1.1fr 0.9fr; 
-  gap: 2rem; 
-}
-.flex.between { 
-  display: flex; 
-  justify-content: space-between; 
-}
-.flex.center { 
-  align-items: center; 
-}
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 50;
-  background: rgba(255,255,255,.9);
-  backdrop-filter: saturate(180%) blur(10px);
-  border-bottom: 1px solid var(--ring);
-}
-.header-inner {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between; 
-  padding: 0.5rem 0;
-}
-.brand { 
-  display: flex; 
-  align-items: center; 
-  gap: .75rem; 
-}
-.logo {
-  height: 80px;
-  width: auto;
-  max-width: 250px;
-  object-fit: contain;
-}
-
-.site-nav ul {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  align-items: center;
-}
-.site-nav li:last-child {
-  margin-left: 1rem; 
-}
-.site-nav a {
-  display: flex;
-  align-items: center;
-  padding: .7rem 1rem;
-  border-radius: 10px;
-}
-.site-nav a:hover { 
-  background: var(--bg-alt); 
-  text-decoration: none; 
-}
-
-.nav-toggle { 
-  display: none; 
-  background: none; 
-  border: 0; 
-  padding: .5rem; 
-  cursor: pointer; 
-  width: 44px;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.nav-toggle .icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease;
-}
-.nav-toggle .icon svg {
-  width: 32px;       
-  height: 32px;
-  stroke: var(--blue-600); 
-  stroke-width: 2;   
-}
-.nav-toggle .close-icon {
-  display: none;
-  opacity: 0;
-}
-.nav-toggle[aria-expanded="true"] .menu-icon {
-  display: none;
-  opacity: 0;
-}
-.nav-toggle[aria-expanded="true"] .close-icon {
-  display: inline-flex;
-  opacity: 1;
-}
-
-.hero { 
-  position: relative; 
-  height: 68vh; 
-  min-height: 460px; 
-  overflow: hidden; 
-}
-.slideshow { 
-  position: absolute; 
-  inset: 0; 
-}
-.slide {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: fade 40s infinite;
-}
-.slide:nth-child(1) { animation-delay: 0s; }
-.slide:nth-child(2) { animation-delay: 5s; }
-.slide:nth-child(3) { animation-delay: 10s; }
-.slide:nth-child(4) { animation-delay: 15s; }
-.slide:nth-child(5) { animation-delay: 20s; }
-.slide:nth-child(6) { animation-delay: 25s; }
-.slide:nth-child(7) { animation-delay: 30s; }
-.slide:nth-child(8) { animation-delay: 35s; }
-
-@keyframes fade {
-  0% { opacity: 0; }
-  5% { opacity: 1; }
-  14.28% { opacity: 1; }
-  19.28% { opacity: 0; }
-  100% { opacity: 0; }
-}
-
-.hero-overlay {
-  position: relative; 
-  z-index: 2; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 1rem;
-  height: 100%; 
-  align-items: flex-start; 
-  justify-content: center;
-  padding: clamp(1rem, 3vw, 2rem); 
-  margin-inline: auto; 
-  width: min(1100px, 92%);
-  color: #fff; 
-  text-shadow: 0 2px 18px rgba(0,0,0,.45);
-}
-.hero::after {
-  content: ""; 
-  position: absolute; 
-  inset: 0; 
-  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55));
-  z-index: 1;
-}
-.hero h1 { 
-  font-size: clamp(2rem, 5vw, 3rem); 
-  margin: 0; 
-}
-.hero p { 
-  max-width: 60ch; 
-  margin: 0; 
-}
-
-.section { 
-  padding: 4.5rem 0; 
-}
-.section.alt { 
-  background: var(--bg-alt); 
-  padding: 1.5rem 0; 
-}
-.card {
-  background: var(--card); 
-  border: 1px solid #e9eef7; 
-  border-radius: var(--radius); 
-  box-shadow: var(--shadow);
-  padding: 1.25rem;
-  border-color: var(--ring); 
-}
-.badge {
-  display: inline-block; 
-  background: linear-gradient(90deg, var(--blue-600), var(--red-600));
-  -webkit-background-clip: text; 
-  background-clip: text; 
-  color: transparent; 
-  font-weight: 800; 
-  letter-spacing: .5px; 
-  margin: 0 0 .5rem 0; 
-}
-.lead { 
-  font-size: 1.05rem; 
-}
-.checklist { 
-  list-style: none; 
-  padding: 0; 
-  margin: .75rem 0 0 0; 
-}
-.checklist li { 
-  padding-left: 1.5rem; 
-  position: relative; 
-  margin: .35rem 0; 
-}
-.checklist li::before {
-  content: "✓"; 
-  position: absolute; 
-  left: 0; 
-  top: 0; 
-  color: var(--blue-600); 
-  font-weight: 700;
-}
-
-.cards { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 1rem; 
-}
-.card.stat { 
-  text-align: center; 
-  padding: 1.5rem; 
-}
-.stat-number { 
-  font-size: 2rem; 
-  font-weight: 800; 
-}
-.stat-label { 
-  color: var(--muted); 
-  font-weight: 600; 
-  margin-top: .25rem; 
-}
-
-.muted { 
-  color: var(--muted); 
-}
-.small { 
-  font-size: .9rem; 
-}
-
-.map-wrap { 
-  border-radius: var(--radius); 
-  overflow: hidden; 
-  box-shadow: var(--shadow); 
-  border: 1px solid #e9eef7; 
-  border-color: var(--ring); 
-}
-.map-wrap iframe { 
-  width: 100%; 
-  height: 320px; 
-  border: 0; 
-  display: block; 
-}
-
-.site-footer { 
-  border-top: 1px solid var(--ring); 
-  background: #fff; 
-}
-.footer-inner { 
-  display: grid; 
-  grid-template-columns: 1fr auto; 
-  gap: 0.1rem; 
-  align-items: center; 
-  padding: 1rem 0; 
-}
-.footer-inner nav a { 
-  margin-right: .85rem; 
-}
-.footer-brand { 
-  display: flex; 
-  align-items: center; 
-  gap: .5rem; 
-}
-.footer-brand img {
-  height: 60px;
-  width: auto;
-  max-width: 200px;
-}
-
-.btn {
-  display: inline-block;
-  padding: .7rem 1rem;
-  border-radius: 12px;
-  border: 1px solid transparent;
-  box-shadow: none;
-  font-weight: 700;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-.btn:hover { 
-  text-decoration: none; 
-}
-.btn-blue {
-  background-color: var(--blue-600);
-  color: #fff;
-}
-.btn-blue:hover {
-  background-color: var(--blue-800);
-}
-.btn-red {
-  background-color: var(--red-600);
-  color: #fff;
-  border: none;
-}
-.btn-red:hover {
-  background-color: var(--red-800);
-}
-.btn.large { 
-  padding: .9rem 1.2rem; 
-  font-weight: 600; 
-}
-
-.site-nav .btn-blue {
-  background-color: var(--blue-600);
-  color: #fff;
-}
-.site-nav .btn-blue:hover {
-  background-color: var(--blue-800);
-}
-.site-nav .btn-red {
-  background-color: var(--red-600);
-  color: #fff;
-}
-.site-nav .btn-red:hover {
-  background-color: var(--red-800);
-}
-
-.btn:focus, 
-a:focus, 
-button:focus {
-  outline: none;
-}
-
-#hours {
-  padding-bottom: 1rem; 
-}
-
-.hours-stickers {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1rem;
-  width: min(1100px, 100%);
-  margin: 1rem auto 0;
-}
-
-.hours-stickers .sticker {
-  display: block;
-  min-width: 0;
-  height: auto;
-  border: 0;
-  border-radius: 0;
-  background: none;
-  box-shadow: none;
-  outline: 0;
-}
-
-.hours-stickers .sticker-8ball {
-  flex: 0.8095 1 0;  
-  width: 100%;
-}
-.hours-stickers .sticker-diner {
-  flex: 0.6698 1 0;   
-  width: 100%;
-}
-
-#hours-note {
-  margin: 1.5rem 0 2rem;
-}
-
-.booking-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1.5rem 1.75rem;
-}
-.booking-text h3 {
-  margin-top: 0;
-}
-.booking-text p {
-  margin-bottom: 0;
-}
-.booking-actions {
-  display: flex;
-  flex-direction: column;
-  gap: .75rem;
-  flex-shrink: 0;
-}
-.booking-actions .btn {
-  text-align: center;
-  min-width: 170px;
-}
-
-#amenities .container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: calc(100% - 7rem); 
-}
-
-#amenities .cards {
-  margin: 1.5rem 0;
-}
-
-#facebook .container {
-  min-height: 140px; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#about,
-#amenities,
-#menu {
-  scroll-margin-top: 96px; 
-}
-
-.menu-pages {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-
-.menu-pages img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-}
-
-@media (max-width: 980px) {
-  .grid.two { 
-    grid-template-columns: 1fr; 
-    gap: 1.25rem; 
-  }
-  .cards { 
-    grid-template-columns: repeat(2, 1fr); 
-  }
-
-  .booking-card {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.25rem;
-  }
-  .booking-actions {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-  }
-  .booking-actions .btn {
-    flex: 0 0 auto;
-    min-width: 0;
-  }
-
-  #amenities .cards {
-    margin: 1rem 0;
-  }
-}
-@media (max-width: 720px) {
-  body {
-    padding-top: 66px;
-  }
-  .site-nav { 
-    position: absolute; 
-    right: 0; 
-    top: 100%; 
-    background: #fff; 
-    width: 40vw; 
-    max-width: 320px; 
-    border-left: 1px solid #e6eaf2; 
-    border-bottom: 1px solid #e6eaf2;
-    transform: translateY(-10px); 
-    opacity: 0; 
-    visibility: hidden; 
-    transition: .25s; 
-    border-bottom-left-radius: 14px; 
-  }
-  .site-nav.open { 
-    transform: translateY(0); 
-    opacity: 1; 
-    visibility: visible; 
-  }
-  .site-nav ul { 
-    flex-direction: column; 
-    padding: 1rem; 
-    align-items: stretch; 
-  }
-  .site-nav li { 
-    width: 100%; 
-  }
-  .site-nav li:last-child {
-    margin-left: 0; 
-  }
-  .site-nav a {
-    justify-content: center; 
-    text-align: center; 
-    padding: 1rem;
-  }
-  .nav-toggle { 
-    display: inline-flex; 
-  }
-  .logo {
-    height: 50px;
-  }
-  .footer-brand img {
-    height: 40px;
-  }
-
-  #facebook .container {
-    flex-direction: column;
-    text-align: center;
-    min-height: auto;
-    padding: 1.5rem 0;
-  }
-
-  #facebook .container > div {
-    margin-bottom: 1.5rem;
-  }
-
-  #about,
-  #amenities,
-  #menu {
-    scroll-margin-top: 66px; 
-  }
-
-  #menu {
-    padding-top: 0;
-  }
-
-  .hours-stickers {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    width: 100%;
-    margin-top: 0.5rem;
-  }
-  .hours-stickers .sticker-8ball,
-  .hours-stickers .sticker-diner {
-    flex: none;
-    width: 100%;
-  }
-
-  .sticker-8ball {
-    padding-bottom: 20px;
-  }
-
-  #hours-note {
-    margin-top: 1rem;
-  }
-
-  #menu .container {
-    width: 100%;
-  }
-
-  #menu h2 {
-    width: min(1100px, 92%);
-    margin-inline: auto;
-  }
-
-  .menu-pages {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  .menu-pages img {
-    border-radius: 0;
-    box-shadow: none;
-  }
-}
-@media (max-width: 520px) {
-  .cards { 
-    grid-template-columns: 1fr; 
-  }
-  .hero { 
-    min-height: 420px; 
-  }
-  .footer-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-    justify-items: center;
-  }
-  .footer-inner nav {
-    margin-top: 1rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  #amenities .cards {
-    margin: 0.5rem 0;
-  }
-
-  .site-nav {
-    width: 100%;
-    max-width: 100%;
-    border-left: none;
-    border-bottom-left-radius: 0;
-  }
-}
+<!doctype html>
+<!-- Created by Anthony J. Henson -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>8 Ball and Arrows: Sports Bar Kidderminster</title>
+  <meta name="author" content="Anthony James Henson">
+  <meta name="description" content="Looking for pool or darts in Kidderminster? Visit 8 Ball & Arrows for 14 pool tables, 8 dart boards, live sport, food at Perri Perri Diner and online bookings." /> 
+  <link rel="preload" href="hero1.webp" as="image" type="image/webp">
+  <img src="hero1.webp" alt="" style="display:none;" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="8 Ball and Arrows Home">
+        <picture>
+          <source srcset="logo.webp" type="image/webp" />
+          <img src="logo.png" alt="8 Ball and Arrows Kidderminster" class="logo" />
+        </picture>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav">
+        <span class="icon menu-icon">
+          <i data-lucide="menu"></i>
+        </span>
+        <span class="icon close-icon">
+          <i data-lucide="x"></i>
+        </span>
+      </button>
+      <nav id="site-nav" class="site-nav" role="navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#hours">Hours</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#contact">Find Us</a></li>
+          <li><a href="https://memsec.app/webapp/9wZnIXi6/playbookings" class="btn btn-red" target="_blank" rel="noopener" aria-label="Book online">Book Online</a></li>
+          <li><a href="https://facebook.com/8BallAndArrows" class="btn btn-blue" aria-label="Visit our Facebook page">Facebook</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<section class="hero" aria-label="Highlights">
+  <div class="slideshow">
+    <div class="slide" style="background-image: image-set(url('hero1.webp') type('image/webp'), url('hero1.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero2.webp') type('image/webp'), url('hero2.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero3.webp') type('image/webp'), url('hero3.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero4.webp') type('image/webp'), url('hero4.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero5.webp') type('image/webp'), url('hero5.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero6.webp') type('image/webp'), url('hero6.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero7.webp') type('image/webp'), url('hero7.jpg') type('image/jpeg'));"></div>
+    <div class="slide" style="background-image: image-set(url('hero8.webp') type('image/webp'), url('hero8.jpg') type('image/jpeg'));"></div>
+  </div>
+  <div class="hero-overlay">
+    <h1>Kidderminster’s Sports Venue</h1>
+    <p>Experience the best in pool, darts, live sports coverage, great drinks, and freshly cooked meals – all in a vibrant, welcoming setting.</p>
+    <a href="#hours" class="btn btn-red">See Opening Hours</a>
+  </div>
+</section>
+  <main id="main">
+    <section id="about" class="section">
+      <div class="container grid two">
+        <div>
+          <h2>About 8 Ball & Arrows</h2>
+          <p>
+          For the past 8 years, we've grown from a small venue with just 6 pool tables into a full sports bar featuring <strong>14 competition&#8209;level tables, 8 dartboard setups, in&#8209;house Perri Perri Diner serving top&#8209;quality food, and TNT Sports shown across multiple screens</strong>. Whether you want to dine in, take away, or pre&#8209;order for collection, we’ve got you covered. Come play, eat, watch, or just relax!
+          </p>
+          <ul class="checklist">
+            <li>Walk-ins always welcome</li>
+            <li>Pre-bookings accepted for pool tables, dart boards, and food</li>
+            <li>Fresh food served daily from our own kitchen</li>
+            <li>Wide variety of alcoholic and non-alcoholic drinks</li>
+            <li>Small outdoor seating area available</li>
+          </ul>
+        </div>
+        <div class="card highlight">
+          <h3 class="badge">Comfort Guaranteed</h3>
+          <p class="lead">
+            The entire venue is fully air conditioned, keeping the temperature comfortable all year round.
+          </p>
+          <p>
+            Whether it's summer or winter, you can focus on enjoying the game, watching live sports, or relaxing with friends without worrying about the weather outside.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="amenities" class="section alt">
+      <div class="container">
+        <h2>Amenities</h2>
+        <div class="cards">
+          <article class="card stat">
+            <div class="stat-number" aria-live="polite">14</div>
+            <div class="stat-label">Pool Tables</div>
+            <p>6 Rasson and 8 Supreme Winner tables maintained to high playing standards.</p>
+          </article>
+          <article class="card stat">
+            <div class="stat-number" aria-live="polite">8</div>
+            <div class="stat-label">Dartboards</div>
+            <p>Well-lit dartboards perfect for both casual games and serious matches.</p>
+          </article>
+          <article class="card stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Air Conditioned</div>
+            <p>Stay comfortable with controlled temperatures across the venue.</p>
+          </article>
+          <article class="card stat">
+            <div class="stat-number">Live</div>
+            <div class="stat-label">Sports</div>
+            <p>Multiple TVs showing live sport on TNT Sports.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="hours" class="section">
+      <div class="container">
+        <h2>Opening Hours</h2>
+      </div>
+      <div class="hours-stickers">
+        <img class="sticker sticker-8ball" src="times-8ball.png" width="1024" height="1265" alt="8 Ball & Arrows opening times: Monday to Wednesday: 12 PM - 12 AM, Thursday: 12 PM - 2 AM, Friday: 12 PM - 3 AM, Saturday: 11 AM - 3 AM, Sunday: 11 AM - 12 AM (Event days from 8:30 AM)" />
+        <img class="sticker sticker-diner" src="times-diner.png" width="994" height="1484" alt="Perri Perri Diner opening times: Monday to Wednesday: 12 PM - 11 PM, Thursday: 12 PM - 1 AM, Friday: 12 PM - 2 AM, Saturday: 11 AM - 2 AM, Sunday: 11 AM - 11 PM (Event days from 8:30 AM)" />
+      </div>
+      <div class="container">
+        <p id="hours-note" class="muted">Last orders are taken 1 hour before closing. Hours remain the same on bank holidays.</p>
+        <div class="card booking-card">
+          <div class="booking-text">
+            <h3>Book a Table or a Dart Board</h3>
+            <p>
+              While we always welcome walk-ins, booking ahead ensures you don't miss out, especially during busy evenings or big sporting events.  
+              You can reserve a <b>pool table, dart board, or even pre-order food</b> so everything is ready when you arrive.  
+              To make a booking, <b>book online using our pre-booking link</b>, <b>message our Facebook page</b> or <b>call the club on 01562 752814</b>.  
+            </p>
+          </div>
+          <div class="booking-actions">
+            <a class="btn btn-red" href="tel:01562752814">Call to Book</a>
+            <a class="btn btn-blue" href="https://memsec.app/webapp/9wZnIXi6/playbookings" target="_blank" rel="noopener">Book Online</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="menu" class="section">
+      <div class="container">
+        <h2>Menu</h2>
+        <div class="menu-pages">
+          <img src="menu1.png" width="768" height="1024" alt="Bacon loaded fries, Southern fried Peri Peri loaded fries, Breakfast Baps (Egg, Bacon, Sausage, Sausage & Egg, Bacon & Egg, Bacon & Sausage, Sausage, Bacon & Egg), Beans on toast, Egg on toast, Cheese toastie, Cheese & Bacon toastie, 8 Ball Breakfast, Small All Day Breakfast, Large All Day Breakfast, and Milkshakes (Strawberry, Raspberry, Chocolate, Toffee, Salted caramel, Pistachio)" />
+          <img src="menu2.png" width="768" height="1024" alt="Burgers (1/4lb Beef Burger, 1/2lb Beef Burger, 1/4lb Cheese Burger, 1/2lb Cheese Burger, Chicken Burger, The 8 Ball Stack, Mixed Grill Stack, Jumbo Hot Dog, Chilli Dog), Extras (Add a burger, Bacon, Extra Cheese, Fried onions, Make it a meal), Kids Meals (1/4lb Beef Burger, 2 Pork Sausages, 4 Chicken Nuggets, Chicken Pops), Curries (Chicken Tikka, Beef Madras, Chicken Curry, Beef Curry, Beef Chilli), Sides (Chips, Cheesy Chips, Garlic Bread, Cheesy Garlic Bread, 10 Chicken Nuggets with dip, Hot & Spicy bites with dip, Chilli Shredded Chicken with dip, Salt & Pepper Shredded Chicken with dip, SFC Chicken Tenders with dip, Chicken Tenders with dip, Hot & Spicy Chicken Wings with dip, 10 Onion Rings with dip, Curry Sauce, Gravy, Extra Pots of Sauce), Jacket Potatoes (Cheese, Beans, Cheese & Beans, Chilli, Curry), and Sharing Platter" />
+        </div>
+      </div>
+    </section>
+    <section id="facebook" class="section alt">
+      <div class="container flex between center">
+        <div>
+          <h2>Keep Up to Date on Facebook</h2>
+          <p>Stay updated with latest news, events, and match-day info straight from the club.</p>
+        </div>
+        <a class="btn btn-blue large" href="https://facebook.com/8BallAndArrows" target="_blank" rel="noopener" aria-label="Open our Facebook page">Visit Facebook</a>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <div class="container grid two">
+        <div>
+          <h2>Find Us</h2>
+          <address class="address">
+            <strong>8 Ball and Arrows Kidderminster</strong><br/>
+            Unit D, Green St<br/>
+            Kidderminster DY10 1JF<br/>
+            <a href="tel:01562752814">01562 752814</a><br/>
+          </address>
+          <p class="muted">Parking available nearby. Public transport stops within a short walk.</p>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            title="Google Map to 8 Ball and Arrows"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=8%20Ball%20and%20Arrows&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="logo.png" alt="8 Ball and Arrows logo" />
+      </div>
+      <nav aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#hours">Hours</a>
+        <a href="#menu">Menu</a>
+        <a href="#contact">Find Us</a>
+        <a href="https://facebook.com/8BallAndArrows" target="_blank" rel="noopener">Facebook</a>
+      </nav>
+      <p class="muted small">© <span id="year"></span> 8 Ball and Arrows. All rights reserved.</p>
+    </div>
+  </footer>
+<script>
+  (function() {
+    lucide.createIcons();   
+    const toggle = document.querySelector('.nav-toggle');
+    const nav = document.getElementById('site-nav');
+    if (toggle && nav) {
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        nav.classList.toggle('open', !expanded);
+      });
+      nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          nav.classList.remove('open');
+        });
+      });
+    }
+    const year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+  })();
+  document.addEventListener('scroll', () => {
+    const header = document.querySelector('.site-header');
+    const hoursSection = document.getElementById('menu');    if (!header || !hoursSection) return;
+    const stopPoint = hoursSection.offsetTop - header.offsetHeight;
+    if (window.scrollY >= stopPoint) {
+      header.style.position = 'absolute';
+      header.style.top = stopPoint + 'px';
+    } else {
+      header.style.position = 'fixed';
+      header.style.top = '0';
+    }
+  });
+  </script>    
+</body>
+</html>
